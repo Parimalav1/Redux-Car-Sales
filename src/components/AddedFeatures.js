@@ -1,8 +1,11 @@
 import React from 'react';
-
 import AddedFeature from './AddedFeature';
+import { connect } from "react-redux"; // Higher-Order Component (HOC)
+import { clearallFeatures } from '../actions/carfeatureActions';
+
 
 const AddedFeatures = props => {
+
   return (
     <div className="content">
       <h6>Added features:</h6>
@@ -15,8 +18,12 @@ const AddedFeatures = props => {
       ) : (
         <p>You can purchase items from the store.</p>
       )}
+       <button className='button' onClick={() => props.clearallFeatures()}>CLEAR</button>
     </div>
   );
 };
 
-export default AddedFeatures;
+export default connect
+(null, {clearallFeatures})
+(AddedFeatures);
+// export default AddedFeatures;
